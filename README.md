@@ -72,9 +72,35 @@ atoSellQty                                       NaN                            
 
 ## Functions
 
-### profit_predict_keras.py
+### ```profit_predict_keras.py```
 
 Returns best possible profit from a stock
+## Output
+```Epoch 1/10
+6/6 [==============================] - 2s 15ms/step - loss: 0.0736
+Epoch 2/10
+6/6 [==============================] - 0s 14ms/step - loss: 0.0228
+Epoch 3/10
+6/6 [==============================] - 0s 14ms/step - loss: 0.0153
+Epoch 4/10
+6/6 [==============================] - 0s 14ms/step - loss: 0.0151
+Epoch 5/10
+6/6 [==============================] - 0s 14ms/step - loss: 0.0116
+Epoch 6/10
+6/6 [==============================] - 0s 14ms/step - loss: 0.0108
+Epoch 7/10
+6/6 [==============================] - 0s 14ms/step - loss: 0.0104
+Epoch 8/10
+6/6 [==============================] - 0s 14ms/step - loss: 0.0097
+Epoch 9/10
+6/6 [==============================] - 0s 14ms/step - loss: 0.0097
+Epoch 10/10
+6/6 [==============================] - 0s 14ms/step - loss: 0.0097
+6/6 [==============================] - 0s 3ms/step
+1/1 [==============================] - 0s 13ms/step
+Maximum profit in training set: [272.49257812]
+Maximum profit in test set: [109.25371094]
+```
 
 ### get_companyinfo
 
