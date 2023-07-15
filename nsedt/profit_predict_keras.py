@@ -5,11 +5,9 @@ from keras.models import Sequential
 from keras.layers import LSTM, Dense
 from nsedt import equity as eq
 from datetime import date
-from nsedt.utils.get_nse_symbols import get_stock_codes
+# from nsedt.utils.get_nse_symbols import get_stock_codes
 
-nse_symbols = get_stock_codes()
-for symbol in nse_symbols:
-    print(symbol)
+# nse_symbols = get_stock_codes()
 
 
 # Load the historical stock price data
