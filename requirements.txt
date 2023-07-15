@@ -1,0 +1,15 @@
+numpy
+pandas
+six
+lxml
+nsetools
+certifi
+requests
+beautifulsoup4
+yfinance
+matplotlib
+keras
+nsepy
+scikit-learn
+setuptools
+tensorflow
