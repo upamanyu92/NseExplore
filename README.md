@@ -72,6 +72,10 @@ atoSellQty                                       NaN                            
 
 ## Functions
 
+### profit_predict_keras.py
+
+Returns best possible profit from a stock
+
 ### get_companyinfo
 
 Function description goes here.
