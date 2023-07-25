@@ -159,7 +159,7 @@ class Nse:
                         f"Do you want to update now ?\n"
                         f"{'You can disable auto check for updates from the menu.' if auto and self.update else ''}")
             if update:
-                webbrowser.open_new("https://github.com/VarunS2002/Python-NSE-Option-Chain-Analyzer/releases/latest")
+                webbrowser.open_new("https://github.com/upamanyu92/Python-NSE-Option-Chain-Analyzer/releases/latest")
                 self.info.attributes('-topmost', False) if not auto else None
             else:
                 self.info.attributes('-topmost', True) if not auto else None
@@ -769,15 +769,15 @@ class Nse:
     def links(self, link: str, event: Optional[Event] = None) -> None:
 
         if link == "developer":
-            webbrowser.open_new("https://github.com/VarunS2002/")
+            webbrowser.open_new("https://github.com/upamanyu92/")
         elif link == "readme":
-            webbrowser.open_new("https://github.com/VarunS2002/Python-NSE-Option-Chain-Analyzer/blob/master/README.md/")
+            webbrowser.open_new("https://github.com/upamanyu92/NseExplore/blob/main/README.md/")
         elif link == "license":
-            webbrowser.open_new("https://github.com/VarunS2002/Python-NSE-Option-Chain-Analyzer/blob/master/LICENSE/")
+            webbrowser.open_new("https://github.com/upamanyu92/NseExplore/blob/main/LICENSE/")
         elif link == "releases":
-            webbrowser.open_new("https://github.com/VarunS2002/Python-NSE-Option-Chain-Analyzer/releases/")
+            webbrowser.open_new("https://github.com/upamanyu92/NseExplore/releases/")
         elif link == "sources":
-            webbrowser.open_new("https://github.com/VarunS2002/Python-NSE-Option-Chain-Analyzer/")
+            webbrowser.open_new("https://github.com/upamanyu92/NseExplore/")
 
         self.info.attributes('-topmost', False)
 
@@ -817,7 +817,7 @@ class Nse:
         version_val.grid(row=1, column=1, sticky=N + S + W + E)
         dev_label: Label = Label(self.info, text="Developer:", relief=RIDGE)
         dev_label.grid(row=2, column=0, sticky=N + S + W + E)
-        dev_val: Label = Label(self.info, text="Varun Shanbhag", fg="blue", cursor="hand2", relief=RIDGE)
+        dev_val: Label = Label(self.info, text="Dexter", fg="blue", cursor="hand2", relief=RIDGE)
         dev_val.bind("<Button-1>", lambda click, link="developer": self.links(link, click))
         dev_val.grid(row=2, column=1, sticky=N + S + W + E)
         readme: Label = Label(self.info, text="README", fg="blue", cursor="hand2", relief=RIDGE)
