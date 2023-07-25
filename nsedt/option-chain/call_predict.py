@@ -43,12 +43,10 @@ class Nse:
         self.url_index: str = "https://www.nseindia.com/api/option-chain-indices?symbol="
         self.url_stock: str = "https://www.nseindia.com/api/option-chain-equities?symbol="
         self.url_symbols: str = "https://www.nseindia.com/api/underlying-information"
-        self.url_icon_png: str = "https://raw.githubusercontent.com/VarunS2002/" \
-                                 "Python-NSE-Option-Chain-Analyzer/master/nse_logo.png"
-        self.url_icon_ico: str = "https://raw.githubusercontent.com/VarunS2002/" \
-                                 "Python-NSE-Option-Chain-Analyzer/master/nse_logo.ico"
-        self.url_update: str = "https://api.github.com/repos/VarunS2002/" \
-                               "Python-NSE-Option-Chain-Analyzer/releases/latest"
+        self.url_icon_png: str = "https://github.com/upamanyu92/NseExplore/blob/main/nsedt/option-chain/nse_logo.png"
+        self.url_icon_ico: str = "https://github.com/upamanyu92/NseExplore/blob/main/nsedt/option-chain/nse_logo.ico"
+        self.url_update: str = "https://api.github.com/repos/upamanyu92/" \
+                               "NseExplore/releases/latest"
         self.headers: Dict[str, str] = {
             'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, '
                           'like Gecko) Chrome/80.0.3987.149 Safari/537.36',
