@@ -18,13 +18,13 @@ def get_stock_codes():
     soup = BeautifulSoup(response.content, 'html.parser')
 
     # Extract the stock codes from the response
-    stock_codes = []
+    stock_code = []
     for row in soup.find_all('tr')[1:]:
         cells = row.find_all('td')
         stock_code = cells[0].text.strip()
-        stock_codes.append(stock_code)
+        stock_code.append(stock_code)
 
-    return stock_codes
+    return stock_code
 
 
 # Get the list of stock codes

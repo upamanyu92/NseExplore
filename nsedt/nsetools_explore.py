@@ -5,7 +5,7 @@ cert_path = certifi.where()
 
 
 def get_all_stock_codes():
-    nse = Nse(cert_file=cert_path)
+    nse = Nse()
     all_stock_codes = nse.get_stock_codes()
     return all_stock_codes.keys()
 
