@@ -19,8 +19,21 @@ import tksheet
 is_windows: bool = platform.system() == "Windows"
 is_windows_10_or_11: bool = is_windows and platform.release() == "10"
 if is_windows_10_or_11:
-    # noinspection PyUnresolvedReferences
     import win10toast
+
+def push(title, message):
+    plt = platform.system()
+    if plt == "Darwin":
+        command = '''
+        osascript -e 'display notification "{message}" with title "{title}"'
+        '''
+    elif plt == "Linux":
+        command = f'''
+        notify-send "{title}" "{message}"
+        '''
+    else:
+        return
+    os.system(command)
 
 
 # noinspection PyAttributeOutsideInit
@@ -60,14 +73,14 @@ class Nse:
         self.get_config()
         self.log() if self.logging else None
         self.units_str: str = 'in K' if self.option_mode == 'Index' else 'in 10s'
-        self.output_columns: Tuple[str, str, str, str, str, str, str, str, str] = (
+        self.output_columns: [str, str, str, str, str, str, str, str, str] = [
             'Time', 'Value', f'Call Sum\n({self.units_str})', f'Put Sum\n({self.units_str})',
             f'Difference\n({self.units_str})', f'Call Boundary\n({self.units_str})',
-            f'Put Boundary\n({self.units_str})', 'Call ITM', 'Put ITM')
-        self.csv_headers: Tuple[str, str, str, str, str, str, str, str, str] = (
+            f'Put Boundary\n({self.units_str})', 'Call ITM', 'Put ITM']
+        self.csv_headers: [str, str, str, str, str, str, str, str, str] = [
             'Time', 'Value', f'Call Sum ({self.units_str})', f'Put Sum ({self.units_str})',
             f'Difference ({self.units_str})',
-            f'Call Boundary ({self.units_str})', f'Put Boundary ({self.units_str})', 'Call ITM', 'Put ITM')
+            f'Call Boundary ({self.units_str})', f'Put Boundary ({self.units_str})', 'Call ITM', 'Put ITM']
         self.toaster: win10toast.ToastNotifier = win10toast.ToastNotifier() if is_windows_10_or_11 else None
         self.get_icon()
         self.login_win(window)
@@ -919,7 +932,7 @@ class Nse:
 
         self.sheet: tksheet.Sheet = tksheet.Sheet(top_frame, column_width=85, align="center",
                                                   headers=self.output_columns, header_font=("TkDefaultFont", 9, "bold"),
-                                                  empty_horizontal=0, empty_vertical=20, header_height=35)
+                                                  empty_horizontal=0, empty_vertical=20, header_height=str(35))
         self.sheet.enable_bindings(
             ("toggle_select", "drag_select", "column_select", "row_select", "column_width_resize",
              "arrowkeys", "right_click_popup_menu", "rc_select", "copy", "select_all"))
@@ -1102,6 +1115,10 @@ class Nse:
                                         f"Changed from {self.old_max_call_oi_sp} to {self.max_call_oi_sp}",
                                         duration=4, threaded=True,
                                         icon_path=self.icon_ico_path if self.load_nse_icon else None)
+            else:
+                push("Upper Boundary Strike Price changed "
+                                        f"for {self.index if self.option_mode == 'Index' else self.stock}",
+                                        f"Changed from {self.old_max_call_oi_sp} to {self.max_call_oi_sp}")
             self.old_max_call_oi_sp = self.max_call_oi_sp
 
         if self.first_run or self.old_max_call_oi_sp_2 == self.max_call_oi_sp_2:
@@ -1113,6 +1130,10 @@ class Nse:
                                         f"Changed from {self.old_max_call_oi_sp_2} to {self.max_call_oi_sp_2}",
                                         duration=4, threaded=True,
                                         icon_path=self.icon_ico_path if self.load_nse_icon else None)
+            else:
+                push("Upper Boundary Strike Price 2 changed "
+                                        f"for {self.index if self.option_mode == 'Index' else self.stock}",
+                                        f"Changed from {self.old_max_call_oi_sp_2} to {self.max_call_oi_sp_2}")
             self.old_max_call_oi_sp_2 = self.max_call_oi_sp_2
 
         if self.first_run or self.old_max_put_oi_sp == self.max_put_oi_sp:
@@ -1124,6 +1145,10 @@ class Nse:
                                         f"Changed from {self.old_max_put_oi_sp} to {self.max_put_oi_sp}",
                                         duration=4, threaded=True,
                                         icon_path=self.icon_ico_path if self.load_nse_icon else None)
+            else:
+                push("Lower Boundary Strike Price changed "
+                                        f"for {self.index if self.option_mode == 'Index' else self.stock}",
+                                        f"Changed from {self.old_max_put_oi_sp} to {self.max_put_oi_sp}")
             self.old_max_put_oi_sp = self.max_put_oi_sp
 
         if self.first_run or self.old_max_put_oi_sp_2 == self.max_put_oi_sp_2:
@@ -1135,6 +1160,10 @@ class Nse:
                                         f"Changed from {self.old_max_put_oi_sp_2} to {self.max_put_oi_sp_2}",
                                         duration=4, threaded=True,
                                         icon_path=self.icon_ico_path if self.load_nse_icon else None)
+            else:
+                push("Lower Boundary Strike Price 2 changed "
+                                        f"for {self.index if self.option_mode == 'Index' else self.stock}",
+                                        f"Changed from {self.old_max_put_oi_sp_2} to {self.max_put_oi_sp_2}")
             self.old_max_put_oi_sp_2 = self.max_put_oi_sp_2
 
         red: str = "#e53935"
@@ -1163,6 +1192,10 @@ class Nse:
                                         f"Changed from {self.old_oi_label} to {oi_label}",
                                         duration=4, threaded=True,
                                         icon_path=self.icon_ico_path if self.load_nse_icon else None)
+            else:
+                push("Open Interest changed "
+                                        f"for {self.index if self.option_mode == 'Index' else self.stock}",
+                                        f"Changed from {self.old_oi_label} to {oi_label}")
             self.old_oi_label = oi_label
 
         if self.put_call_ratio >= 1:
@@ -1202,6 +1235,10 @@ class Nse:
                                         f"Changed from {self.old_call_label} to {call}",
                                         duration=4, threaded=True,
                                         icon_path=self.icon_ico_path if self.load_nse_icon else None)
+            else:
+                push("Call ITM changed "
+                                        f"for {self.index if self.option_mode == 'Index' else self.stock}",
+                                        f"Changed from {self.old_call_label} to {call}")
             self.old_call_label = call
 
         self.old_put_label: str
@@ -1221,6 +1258,10 @@ class Nse:
                                         f"Changed from {self.old_put_label} to {put}",
                                         duration=4, threaded=True,
                                         icon_path=self.icon_ico_path if self.load_nse_icon else None)
+            else:
+                push("Put ITM changed "
+                                        f"for {self.index if self.option_mode == 'Index' else self.stock}",
+                                        f"Changed from {self.old_put_label} to {put}")
             self.old_put_label = put
 
         self.old_call_exits_label: str
@@ -1246,6 +1287,10 @@ class Nse:
                                         f"Changed from {self.old_call_exits_label} to {call_exits_label}",
                                         duration=4, threaded=True,
                                         icon_path=self.icon_ico_path if self.load_nse_icon else None)
+            else:
+                push("Call Exits changed "
+                                        f"for {self.index if self.option_mode == 'Index' else self.stock}",
+                                        f"Changed from {self.old_call_exits_label} to {call_exits_label}")
             self.old_call_exits_label = call_exits_label
 
         self.old_put_exits_label: str
@@ -1271,6 +1316,10 @@ class Nse:
                                         f"Changed from {self.old_put_exits_label} to {put_exits_label}",
                                         duration=4, threaded=True,
                                         icon_path=self.icon_ico_path if self.load_nse_icon else None)
+            else:
+                push("Put Exits changed "
+                                        f"for {self.index if self.option_mode == 'Index' else self.stock}",
+                                        f"Changed from {self.old_put_exits_label} to {put_exits_label}")
             self.old_put_exits_label = put_exits_label
 
         output_values: List[Union[str, float]] = [self.str_current_time, self.points, self.call_sum,
