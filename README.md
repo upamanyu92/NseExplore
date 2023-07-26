@@ -136,7 +136,7 @@ Function description goes here.
 
 2. Select your Index or Stock
 
-3. Select it's Expiry Date
+3. Select its Expiry Date
 
 4. Enter your preferred Strike Price
 
@@ -297,14 +297,5 @@ Function description goes here.
 
 - [win10toast](https://pypi.org/project/win10toast/) is used for toast notifications on Windows 10 and 11
 
-## Contributors:
-
-- [medknecth](https://github.com/medknecth/)
-
-- [Sangram2905](https://github.com/Sangram2905/)
-
-- [yjagota](https://github.com/yjagota/)
-
-- [QuickLearner171998](https://github.com/QuickLearner171998/)
 
 
