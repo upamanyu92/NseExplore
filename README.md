@@ -287,7 +287,7 @@ Function description goes here.
 
 - [auto-py-to-exe](https://pypi.org/project/auto-py-to-exe/) is used for compiling the program to a .exe file
 
-- [pandas](https://pypi.org/project/pandas/) is used for storing and manipulating the data
+- [pandas](https://pypi.org/project/pandas/) are used for storing and manipulating the data
 
 - [requests](https://pypi.org/project/requests/) is used for accessing and retrieving data from the NSE website
 

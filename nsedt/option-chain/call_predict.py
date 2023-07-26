@@ -150,38 +150,38 @@ class Nse:
                         self.icon_ico_path = None
                         return
 
-    def check_for_updates(self, auto: bool = True) -> None:
-        try:
-            release_data: requests.Response = requests.get(self.url_update, headers=self.headers, timeout=5)
-            latest_version: str = release_data.json()['tag_name']
-            float(latest_version)
-        except Exception as err:
-            print(err, sys.exc_info()[0], "21")
-            if not auto:
-                self.info.attributes('-topmost', False)
-                messagebox.showerror(title="Error", message="Failed to check for updates.")
-                self.info.attributes('-topmost', True)
-            return
-
-        if float(latest_version) > float(Nse.version):
-            self.info.attributes('-topmost', False) if not auto else None
-            update: bool = messagebox.askyesno(
-                title="New Update Available",
-                message=f"You are running version: {Nse.version}\n"
-                        f"Latest version: {latest_version}\n"
-                        f"Do you want to update now ?\n"
-                        f"{'You can disable auto check for updates from the menu.' if auto and self.update else ''}")
-            if update:
-                webbrowser.open_new("https://github.com/upamanyu92/Python-NSE-Option-Chain-Analyzer/releases/latest")
-                self.info.attributes('-topmost', False) if not auto else None
-            else:
-                self.info.attributes('-topmost', True) if not auto else None
-        else:
-            if not auto:
-                self.info.attributes('-topmost', False)
-                messagebox.showinfo(title="No Updates Available", message=f"You are running the latest version.\n"
-                                                                          f"Version: {Nse.version}")
-                self.info.attributes('-topmost', True)
+    # def check_for_updates(self, auto: bool = True) -> None:
+    #     try:
+    #         release_data: requests.Response = requests.get(self.url_update, headers=self.headers, timeout=5)
+    #         latest_version: str = release_data.json()['tag_name']
+    #         float(latest_version)
+    #     except Exception as err:
+    #         print(err, sys.exc_info()[0], "21")
+    #         if not auto:
+    #             self.info.attributes('-topmost', False)
+    #             messagebox.showerror(title="Error", message="Failed to check for updates.")
+    #             self.info.attributes('-topmost', True)
+    #         return
+    #
+    #     if float(latest_version) > float(Nse.version):
+    #         self.info.attributes('-topmost', False) if not auto else None
+    #         update: bool = messagebox.askyesno(
+    #             title="New Update Available",
+    #             message=f"You are running version: {Nse.version}\n"
+    #                     f"Latest version: {latest_version}\n"
+    #                     f"Do you want to update now ?\n"
+    #                     f"{'You can disable auto check for updates from the menu.' if auto and self.update else ''}")
+    #         if update:
+    #             webbrowser.open_new("https://github.com/upamanyu92/Python-NSE-Option-Chain-Analyzer/releases/latest")
+    #             self.info.attributes('-topmost', False) if not auto else None
+    #         else:
+    #             self.info.attributes('-topmost', True) if not auto else None
+    #     else:
+    #         if not auto:
+    #             self.info.attributes('-topmost', False)
+    #             messagebox.showinfo(title="No Updates Available", message=f"You are running the latest version.\n"
+    #                                                                       f"Version: {Nse.version}")
+    #             self.info.attributes('-topmost', True)
 
     def get_config(self) -> None:
         try:
@@ -845,9 +845,9 @@ class Nse:
         sources: Label = Label(self.info, text="Sources", fg="blue", cursor="hand2", relief=RIDGE)
         sources.bind("<Button-1>", lambda click, link="sources": self.links(link, click))
         sources.grid(row=4, column=1, sticky=N + S + W + E)
-        updates: Button = Button(self.info, text="Check for Updates",
-                                 command=lambda auto=False: self.check_for_updates(auto))
-        updates.grid(row=5, column=0, columnspan=2, sticky=N + S + W + E)
+        # updates: Button = Button(self.info, text="Check for Updates",
+        #                          command=lambda auto=False: self.check_for_updates(auto))
+        # updates.grid(row=5, column=0, columnspan=2, sticky=N + S + W + E)
         self.info.mainloop()
 
     def close_login(self) -> None:
@@ -1598,8 +1598,8 @@ class Nse:
                 print(err, sys.exc_info()[0], "16")
 
         if self.first_run:
-            if self.update:
-                self.check_for_updates()
+            # if self.update:
+            #     self.check_for_updates()
             self.first_run = False
         if self.str_current_time == '15:30:00' and not self.stop and self.auto_stop \
                 and self.previous_date == datetime.datetime.strptime(time.strftime("%d-%b-%Y", time.localtime()),
