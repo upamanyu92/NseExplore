@@ -21,3 +21,4 @@ streamtologger~=2017.1
 tksheet~=6.2.3
 win10toast>=0.9; platform_system == "Windows" and platform_release == "10"
 
+werkzeug>=3.0.1 # not directly required, pinned by Snyk to avoid a vulnerability
