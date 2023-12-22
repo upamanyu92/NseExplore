@@ -2,7 +2,7 @@ numpy~=1.24.3
 six
 lxml
 nsetools~=1.0.11
-certifi~=2023.5.7
+certifi~=2023.7.22
 beautifulsoup4~=4.12.2
 yfinance~=0.2.24
 matplotlib~=3.7.2
@@ -21,3 +21,4 @@ streamtologger~=2017.1
 tksheet~=6.2.3
 win10toast>=0.9; platform_system == "Windows" and platform_release == "10"
 
+werkzeug>=2.3.8 # not directly required, pinned by Snyk to avoid a vulnerability
