@@ -5,9 +5,11 @@ Introduction
 This is python library to provide API on advanced prediction and live stock analysis data.
 
 ---
-## Run 
+## Run
+
 ```py
-from nsedt import equity as eq
+
+from nsedt.api import equity as eq
 from datetime import date
 
 start_date = date(2022, 1, 1)
@@ -54,7 +56,7 @@ atoSellQty                                       NaN                            
 
 #get_marketstatus
 
-           market marketStatus     tradeDate     index     last  ... percentChange marketStatusMessage   expiryDate underlying tradeDateFormatted
+           market marketStatus     tradeDate     index_eq     last  ... percentChange marketStatusMessage   expiryDate underlying tradeDateFormatted
 0  Capital Market        Close   09-Jun-2023  NIFTY 50  18563.4  ...         -0.38    Market is Closed          NaN        NaN                NaN
 4  currencyfuture        Close  Invalid date            82.4975  ...                  Market is Closed  16-Jun-2023     USDINR        09-Jun-2023
 

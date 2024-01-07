@@ -12,12 +12,17 @@ scikit-learn~=1.3.0
 setuptools~=65.5.1
 tensorflow~=2.13.0
 dash~=2.11.1
-plotly
+plotly~=5.15.0
 openpyxl
 babel~=2.12.1
 pandas~=2.0.3
 requests~=2.31.0
 streamtologger~=2017.1
 tksheet~=6.2.3
+openai~=0.27.8
+dash_bootstrap_components
 win10toast>=0.9; platform_system == "Windows" and platform_release == "10"
-
+aiohttp~=3.8.5
+cachetools~=5.3.1
+urllib3~=1.26.16
+flask_socketio

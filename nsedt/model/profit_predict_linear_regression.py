@@ -6,7 +6,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense
 
 # Load the historical stock price data
-data = pd.read_csv('app/stock_data.csv')  # Replace 'stock_data.csv' with your dataset file
+data = pd.read_csv('../api/stock_data.csv')  # Replace 'stock_data.csv' with your dataset file
 
 # Preprocess the data
 scaler = MinMaxScaler(feature_range=(0, 1))

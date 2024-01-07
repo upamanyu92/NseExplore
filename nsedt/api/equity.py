@@ -84,8 +84,8 @@ def get_price(
     Args:
         start_date (datetime.datetime): start date
         end_date (datetime.datetime): end date
-        input_type (str): Either 'stock' or 'index'
-        symbol (str, optional): stock symbol. Defaults to None. TODO: implement for index`
+        input_type (str): Either 'stock' or 'index_eq'
+        symbol (str, optional): stock symbol. Defaults to None. TODO: implement for index_eq`
     Returns:
         Pandas DataFrame: df containing data for symbol of provided date range
     """
@@ -158,7 +158,7 @@ def get_corpinfo(
         "symbol": symbol,
         "from_date": start_date,
         "to_date": end_date,
-        "index": "equities",
+        "index_eq": "equities",
     }
     base_url = cns.BASE_URL
     price_api = cns.EQUITY_CORPINFO
@@ -190,7 +190,7 @@ def get_event(
     base_url = cns.BASE_URL
     event_api = cns.EQUITY_EVENT
 
-    params["index"] = index
+    params["index_eq"] = index
     if start_date is not None:
         params["from_date"] = start_date
     if end_date is not None:
@@ -220,8 +220,11 @@ def get_chartdata(
     except KeyError:
         return f"Invalid symbol name: {symbol}"
 
-    params["index"] = identifier
+    params["index_eq"] = identifier
     params["preopen"] = preopen
 
     url = base_url + event_api + urllib.parse.urlencode(params)
     return utils.fetch_url(url, cookies, key="grapthData")
+
+
+# method to get symbol quote

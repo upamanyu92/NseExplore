@@ -2,3 +2,46 @@
 [2023-07-26 16:05:37 - INFO ] Darwin 22.3.0 .py version 5.5
 [2023-07-26 16:05:37 - INFO ] NSE icon loading disabled
 [2023-07-26 16:06:26 - INFO ] ----------Quitting Program----------
+[2023-07-31 15:13:47 - INFO ] ----------Logging Started----------
+[2023-07-31 15:13:47 - INFO ] Darwin 22.3.0 .py version 5.5
+[2023-07-31 15:13:48 - INFO ] couldn't recognize data in image file ".NSE-OCA.png" <class '_tkinter.TclError'> 17
+[2023-07-31 15:14:35 - ERROR] Exception in Tkinter callback
+[2023-07-31 15:14:35 - ERROR] Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/tkinter/__init__.py", line 1921, in __call__
+[2023-07-31 15:14:35 - ERROR]     return self.func(*args)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/tkinter/__init__.py", line 839, in callit
+[2023-07-31 15:14:35 - ERROR]     func(*args)
+  File "/Users/commandcenter/NSE/nsedt/nsedt/option-chain/call_predict.py", line 1548, in main
+[2023-07-31 15:14:35 - ERROR]     self.p6: int = int(o3.get((index - 2), 'Change in Open Interest'))
+ValueError: invalid literal for int() with base 10: 'Change in Open Interest'
+[2023-07-31 15:16:09 - INFO ] ----------Logging Started----------
+[2023-07-31 15:16:09 - INFO ] Darwin 22.3.0 .py version 5.5
+[2023-07-31 15:16:09 - INFO ] couldn't recognize data in image file ".NSE-OCA.png" <class '_tkinter.TclError'> 17
+[2023-07-31 15:16:14 - ERROR] Exception in Tkinter callback
+[2023-07-31 15:16:14 - ERROR] Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/tkinter/__init__.py", line 1921, in __call__
+[2023-07-31 15:16:14 - ERROR]     return self.func(*args)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/tkinter/__init__.py", line 839, in callit
+[2023-07-31 15:16:14 - ERROR]     func(*args)
+  File "/Users/commandcenter/NSE/nsedt/nsedt/option-chain/call_predict.py", line 1548, in main
+[2023-07-31 15:16:14 - ERROR]     self.p6: int = int(o3.get((index - 2), 'Change in Open Interest'))
+ValueError: invalid literal for int() with base 10: 'Change in Open Interest'
+[2023-07-31 15:22:41 - INFO ] ----------Logging Started----------
+[2023-07-31 15:22:41 - INFO ] Darwin 22.3.0 .py version 5.5
+[2023-07-31 15:22:42 - INFO ] couldn't recognize data in image file ".NSE-OCA.png" <class '_tkinter.TclError'> 17
+[2023-07-31 16:06:39 - INFO ] ----------Logging Started----------
+[2023-07-31 16:06:39 - INFO ] Darwin 22.3.0 .py version 5.5
+[2023-07-31 16:06:40 - INFO ] couldn't recognize data in image file ".NSE-OCA.png" <class '_tkinter.TclError'> 17
+[2023-07-31 16:06:43 - INFO ] list index out of range <class 'IndexError'> 10
+[2023-07-31 16:08:52 - INFO ] ----------Logging Started----------
+[2023-07-31 16:08:52 - INFO ] Darwin 22.3.0 .py version 5.5
+[2023-07-31 16:08:53 - INFO ] couldn't recognize data in image file ".NSE-OCA.png" <class '_tkinter.TclError'> 17
+[2023-07-31 16:08:55 - INFO ] ----------Quitting Program----------
+[2023-08-04 01:11:37 - INFO ] ----------Logging Started----------
+[2023-08-04 01:11:37 - INFO ] Darwin 22.3.0 .py version 5.5
+[2023-08-04 01:11:37 - INFO ] couldn't recognize data in image file ".NSE-OCA.png" <class '_tkinter.TclError'> 17
+[2023-08-04 01:11:42 - INFO ] ----------Quitting Program----------
+[2023-08-04 10:34:05 - INFO ] ----------Logging Started----------
+[2023-08-04 10:34:05 - INFO ] Darwin 22.3.0 .py version 5.5
+[2023-08-04 10:34:06 - INFO ] couldn't recognize data in image file ".NSE-OCA.png" <class '_tkinter.TclError'> 17
+[2023-08-04 10:34:10 - INFO ] ----------Quitting Program----------
