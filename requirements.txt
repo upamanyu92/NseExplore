@@ -2,7 +2,7 @@ numpy~=1.24.3
 six
 lxml
 nsetools~=1.0.11
-certifi~=2023.5.7
+certifi~=2023.7.22
 beautifulsoup4~=4.12.2
 yfinance~=0.2.24
 matplotlib~=3.7.2
@@ -22,7 +22,8 @@ tksheet~=6.2.3
 openai~=0.27.8
 dash_bootstrap_components
 win10toast>=0.9; platform_system == "Windows" and platform_release == "10"
-aiohttp~=3.8.5
+aiohttp~=3.9.0
 cachetools~=5.3.1
 urllib3~=1.26.16
 flask_socketio
+werkzeug>=2.3.8 # not directly required, pinned by Snyk to avoid a vulnerability
