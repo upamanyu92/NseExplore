@@ -22,7 +22,7 @@ tksheet~=6.2.3
 openai~=0.27.8
 dash_bootstrap_components
 win10toast>=0.9; platform_system == "Windows" and platform_release == "10"
-aiohttp~=3.8.5
+aiohttp~=3.9.4
 cachetools~=5.3.1
 urllib3~=1.26.16
 flask_socketio
